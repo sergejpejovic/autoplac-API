@@ -18,4 +18,28 @@ const getVehicleByUserId = async (req: Request, res: Response) => {
   res.send(data);
 };
 
-export default { getAllVehicles, getVehicleById, getVehicleByUserId };
+const createNewVehicle = async (req: Request, res: Response) => {
+  const data = await vehiclesService.createNewVehicle(req.body);
+  res.send(data);
+};
+
+const updateVehicle = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const data = await vehiclesService.updateVehicle(parseInt(id), req.body);
+  res.send(data);
+};
+
+const deleteVehicle = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const data = await vehiclesService.deleteVehicle(parseInt(id));
+  res.send(data);
+};
+
+export default {
+  getAllVehicles,
+  getVehicleById,
+  getVehicleByUserId,
+  createNewVehicle,
+  updateVehicle,
+  deleteVehicle,
+};
