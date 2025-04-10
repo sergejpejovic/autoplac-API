@@ -2,7 +2,7 @@ import dbConnection from "../common/db-connection";
 
 const getAllVehicles = async () => {
   try {
-    const data = await dbConnection.query("SELECT * FROM vehicles");
+    const data = await dbConnection.query("SELECT * vehicles ");
     return data;
   } catch (error: any) {
     return { success: false, msg: error.message };
