@@ -8,7 +8,7 @@ const getAllVehicles = async () => {
   data.forEach((vehicle: any) => {
     result.push({
       id: vehicle.id,
-      userId: vehicle.user_id,
+      userId: vehicle.userId,
       type: vehicle.type,
       title: vehicle.title,
       brand: vehicle.brand,
@@ -18,12 +18,12 @@ const getAllVehicles = async () => {
       mileage: vehicle.mileage,
       fuel: vehicle.fuel,
       transmission: vehicle.transmission,
-      bodyType: vehicle.body_type,
+      bodyType: vehicle.bodyType,
       color: vehicle.color,
-      engineSize: vehicle.engine_size,
+      engineSize: vehicle.engineSize,
       hp: vehicle.hp,
       description: vehicle.description,
-      createdAt: vehicle.created_at,
+      createdAt: vehicle.createdAt,
     });
   });
   return result;
@@ -34,7 +34,7 @@ const getVehicleById = async (id: number) => {
   if (data && data.length > 0) {
     return {
       id: data[0].id,
-      userId: data[0].user_id,
+      userId: data[0].userId,
       type: data[0].type,
       title: data[0].title,
       brand: data[0].brand,
@@ -44,12 +44,12 @@ const getVehicleById = async (id: number) => {
       mileage: data[0].mileage,
       fuel: data[0].fuel,
       transmission: data[0].transmission,
-      bodyType: data[0].body_type,
+      bodyType: data[0].bodyType,
       color: data[0].color,
-      engineSize: data[0].engine_size,
+      engineSize: data[0].engineSize,
       hp: data[0].hp,
       description: data[0].description,
-      createdAt: data[0].created_at,
+      createdAt: data[0].createdAt,
     };
   }
   return null;
@@ -62,7 +62,7 @@ const getVehicleByUserId = async (userId: number) => {
   data.forEach((vehicle: any) => {
     result.push({
       id: vehicle.id,
-      userId: vehicle.user_id,
+      userId: vehicle.userId,
       type: vehicle.type,
       title: vehicle.title,
       brand: vehicle.brand,
@@ -72,12 +72,12 @@ const getVehicleByUserId = async (userId: number) => {
       mileage: vehicle.mileage,
       fuel: vehicle.fuel,
       transmission: vehicle.transmission,
-      bodyType: vehicle.body_type,
+      bodyType: vehicle.bodyType,
       color: vehicle.color,
-      engineSize: vehicle.engine_size,
+      engineSize: vehicle.engineSize,
       hp: vehicle.hp,
       description: vehicle.description,
-      createdAt: vehicle.created_at,
+      createdAt: vehicle.createdAt,
     });
   });
   return result;
