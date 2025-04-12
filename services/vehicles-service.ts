@@ -23,6 +23,7 @@ const getAllVehicles = async () => {
       engineSize: vehicle.engineSize,
       hp: vehicle.hp,
       description: vehicle.description,
+      thumbnail: vehicle.thumbnail,
       createdAt: vehicle.createdAt,
     });
   });
@@ -49,6 +50,7 @@ const getVehicleById = async (id: number) => {
       engineSize: data[0].engineSize,
       hp: data[0].hp,
       description: data[0].description,
+      thumbnail: data[0].thumbnail,
       createdAt: data[0].createdAt,
     };
   }
@@ -77,6 +79,7 @@ const getVehicleByUserId = async (userId: number) => {
       engineSize: vehicle.engineSize,
       hp: vehicle.hp,
       description: vehicle.description,
+      thumbnail: vehicle.thumbnail,
       createdAt: vehicle.createdAt,
     });
   });

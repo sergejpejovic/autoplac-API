@@ -19,6 +19,7 @@ const getAllVehicles = async () => {
   es.size AS engineSize,
   v.hp,
   v.description,
+  V.thumbnail,
   v.created_at AS createdAt
 FROM vehicles v
 JOIN vehicleType vt ON v.type_id = vt.id
@@ -55,6 +56,7 @@ const getVehicleById = async (id: number) => {
         es.size AS engineSize,
         v.hp,
         v.description,
+         V.thumbnail,
         v.created_at AS createdAt
       FROM vehicles v
       JOIN vehicleType vt ON v.type_id = vt.id
@@ -94,6 +96,7 @@ const getVehicleByUserId = async (userId: number) => {
         es.size AS engineSize,
         v.hp,
         v.description,
+         V.thumbnail,
         v.created_at AS createdAt
       FROM vehicles v
       JOIN vehicleType vt ON v.type_id = vt.id
@@ -116,7 +119,7 @@ const getVehicleByUserId = async (userId: number) => {
 const createNewVehicle = async (vehicle: any) => {
   try {
     const data = await dbConnection.query(
-      "INSERT INTO vehicles (user_id,type_id,title,brand_id,model_id,year,price,mileage,fuel_id,transmission_id,body_type_id,color,engine_size_id,hp,description) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+      "INSERT INTO vehicles (user_id,type_id,title,brand_id,model_id,year,price,mileage,fuel_id,transmission_id,body_type_id,color,engine_size_id,hp,description, thumbnail) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
       [
         vehicle.userId,
         vehicle.type,
@@ -133,8 +136,10 @@ const createNewVehicle = async (vehicle: any) => {
         vehicle.engineSize,
         vehicle.hp,
         vehicle.description,
+        vehicle.thumbnail,
       ]
     );
+
     return { success: true, data };
   } catch (error: any) {
     return { success: false, msg: error.message };
@@ -144,7 +149,7 @@ const createNewVehicle = async (vehicle: any) => {
 const updateVehicle = async (id: number, vehicle: any) => {
   try {
     const data = await dbConnection.query(
-      `UPDATE vehicles SET user_id =?, type_id =?, title = ?, brand_id = ?, model_id =?, year =?, price =?, mileage =?, fuel_id =?, transmission_id =?, body_type_id =?, color =?, engine_size_id =?, hp = ?, description =? WHERE id = ?`,
+      `UPDATE vehicles SET user_id =?, type_id =?, title = ?, brand_id = ?, model_id =?, year =?, price =?, mileage =?, fuel_id =?, transmission_id =?, body_type_id =?, color =?, engine_size_id =?, hp = ?, description =?, thumbnail = ? WHERE id = ?`,
       [
         vehicle.userId,
         vehicle.type,
@@ -161,6 +166,7 @@ const updateVehicle = async (id: number, vehicle: any) => {
         vehicle.engineSize,
         vehicle.hp,
         vehicle.description,
+        vehicle.thumbnail,
         id,
       ]
     );
