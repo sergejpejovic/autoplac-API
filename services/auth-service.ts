@@ -37,6 +37,7 @@ const login = async (user: any) => {
     const token = jwt.sign(
       {
         username: user.username,
+        userId: data[0].id,
         isAdmin: data[0].is_admin == 1 ? true : false,
       },
       "SECRET"
