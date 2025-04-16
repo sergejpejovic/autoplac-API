@@ -116,6 +116,24 @@ const getVehicleByUserId = async (userId: number) => {
   }
 };
 
+const getUserByVehicleId = async (vehicleId: number) => {
+  try {
+    const data = await dbConnection.query(
+      `
+      SELECT u.username, u.email, u.contact, u.is_admin, u.created_at
+     FROM vehicles v
+     JOIN users u ON v.user_id = u.id
+     WHERE v.id = ?
+      `,
+      [vehicleId]
+    );
+
+    return data;
+  } catch (error: any) {
+    return { success: false, msg: error.message };
+  }
+};
+
 const createNewVehicle = async (vehicle: any) => {
   try {
     const data = await dbConnection.query(
@@ -191,6 +209,7 @@ export default {
   getAllVehicles,
   getVehicleById,
   getVehicleByUserId,
+  getUserByVehicleId,
   createNewVehicle,
   updateVehicle,
   deleteVehicle,

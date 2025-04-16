@@ -17,4 +17,8 @@ vehiclesRouter
 
 vehiclesRouter.route("/user/:id").get(vehiclesController.getVehicleByUserId);
 
+vehiclesRouter
+  .route("/user/vehicle/:id")
+  .get(vehiclesController.getUserByVehicleId);
+
 export default vehiclesRouter;

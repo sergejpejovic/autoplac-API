@@ -86,6 +86,22 @@ const getVehicleByUserId = async (userId: number) => {
   return result;
 };
 
+const getUserByVehicleId = async (vehicleId: number) => {
+  const data = await vehiclesRepository.getUserByVehicleId(vehicleId);
+  const result: any = [];
+
+  data.forEach((user: any) => {
+    result.push({
+      username: user.username,
+      email: user.email,
+      contact: user.contact,
+      isAdmin: user.is_admin,
+      createdAt: user.created_at,
+    });
+  });
+  return result;
+};
+
 const createNewVehicle = async (vehicle: any) => {
   const data = await vehiclesRepository.createNewVehicle(vehicle);
   return data;
@@ -105,6 +121,7 @@ export default {
   getAllVehicles,
   getVehicleById,
   getVehicleByUserId,
+  getUserByVehicleId,
   createNewVehicle,
   updateVehicle,
   deleteVehicle,
