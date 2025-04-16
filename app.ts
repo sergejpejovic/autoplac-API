@@ -7,6 +7,7 @@ import authRouter from "./routing/auth-routing";
 import fileUploadRouter from "./common/file-upload";
 import vehicleImagesRouter from "./routing/vehicle-images-routing";
 import additionalRouter from "./routing/additionals-routing";
+import equipmentRouter from "./routing/equipment-routing";
 
 const mysql = require("mysql2");
 const app = express();
@@ -18,6 +19,7 @@ app.use("/vehicles", vehiclesRouter);
 app.use("/auth", authRouter);
 app.use("/vehicles", vehicleImagesRouter);
 app.use("/additionals", additionalRouter);
+app.use("/equipment", equipmentRouter);
 app.use(fileUploadRouter);
 
 app.listen(4000, () => {
