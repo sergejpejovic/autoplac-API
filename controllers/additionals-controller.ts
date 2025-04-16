@@ -3,7 +3,6 @@ import { Request, Response } from "express";
 
 const getAllVehicleTypes = async (req: Request, res: Response) => {
   const data = await additionalsService.getAllVehicleTypes();
-  console.log(data);
   res.send(data);
 };
 
