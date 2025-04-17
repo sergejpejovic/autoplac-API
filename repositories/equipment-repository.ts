@@ -37,7 +37,7 @@ const addEquipmentToVehicle = async (equipment: {
             INSERT INTO vehicle_equipment (vehicle_id, equipment_id) VALUES ?`,
       [values]
     );
-    return data;
+    return { success: true, data };
   } catch (error: any) {
     return { success: false, msg: error.message };
   }

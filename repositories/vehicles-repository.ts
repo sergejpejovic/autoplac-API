@@ -157,8 +157,9 @@ const createNewVehicle = async (vehicle: any) => {
         vehicle.thumbnail,
       ]
     );
+    const vehicleId = data.insertId;
 
-    return { success: true, data };
+    return { success: true, vehicleId, data };
   } catch (error: any) {
     return { success: false, msg: error.message };
   }
